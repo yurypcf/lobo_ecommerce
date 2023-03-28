@@ -1,5 +1,13 @@
 require 'rails_helper'
 
+# Arrange, Act, Assert
+
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'Validate not null fields' do
+    it 'should have not null name field' do
+      user = build(:user)
+
+      expect(user.valid?).to eq(true)
+    end
+  end
 end
