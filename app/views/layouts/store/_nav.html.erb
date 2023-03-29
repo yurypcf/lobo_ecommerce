@@ -10,9 +10,16 @@
             <form class="d-flex">
                 <button class="btn btn-outline-dark" type="submit">
                     <i class="bi-cart-fill me-1"></i>
-                    Cart
+                    Carrinho
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button>
+                <div style="margin: 4px">
+                  <% if user_signed_in? %>
+                    <% if current_user.admin? || current_user.stockist? %>
+                      <%= link_to "Painel Administrativo", admin_root_path, class: "btn btn-dark" %>
+                    <% end %>
+                  <%end %>
+                </div>
             </form>
         </div>
     </div>

@@ -5,7 +5,12 @@
   <div class="col-lg-12">
     <div class="card shadow mb-4">
       <div class="card-body">
-        <%= render "form", product: @product %>
+        <% if current_user.stockist? %>
+          <%= render "form_stockist", product: @product %>
+        <% else %>
+          <%= render "form", product: @product %>
+        <% end %>
+
       </div>
     </div>
   </div>

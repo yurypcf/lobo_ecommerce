@@ -13,6 +13,7 @@
       <div class="card-body">
         <table class="table table-striped">
           <thead>
+            <th>Código do Produto</th>
             <th>Nome</th>
             <th>Descrição</th>
             <th>Preço</th>
@@ -22,6 +23,7 @@
           <tbody>
             <% @products.each do |product| %>
               <tr>
+                  <td><%= product.id %></td>
                   <td><%= product.name %></td>
                   <td><%= product.description %></td>
                   <td><%= product.price %></td>
@@ -30,6 +32,7 @@
                     <%= link_to "Detalhes", admin_product_path(product), class: 'btn btn-dark' %>
                     <%= link_to "Editar", edit_admin_product_path(product), class: 'btn btn-warning' %>
                     <%= link_to "Excluir", admin_product_path(product), method: :delete, class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: 'Deseja realmente excluir?' } %>
+                    <%= link_to product.active ? 'Inativar' : 'Ativar', admin_product_activation_path(product), class: 'btn btn-warning', data: { turbo_method: :get, turbo_confirm: 'Você tem certeza?' } %>
                   </td>
               </tr>
             <% end %>
@@ -40,7 +43,7 @@
           <%= link_to_next_page @products, 'Next Page' %>
         </div>
         <br/>
-        <%= link_to "Novo Produto", new_admin_product_path, class: 'btn btn-primary' %>
+        <%= link_to "+", new_admin_product_path, class: 'btn btn-primary' %>
       </div>
     </div>
   </div>

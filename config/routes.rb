@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :users
     resources :products do
       get '/page/:page', action: :index, on: :collection
+      get '/activation', action: :activate_deactivate
     end
   end
 end

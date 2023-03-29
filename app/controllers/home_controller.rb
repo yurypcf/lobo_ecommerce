@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.where(active: true).order(:name)
   end
 end

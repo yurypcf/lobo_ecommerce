@@ -24,4 +24,11 @@
     <strong>Quantidade em Estoque:</strong>
     <%= product.quantity %>
   </p>
+
+  <p>
+    <strong>Ativo</strong>
+    <%= product.active ? 'Sim' : 'Não' %>
+  </p>
 </div> 
+
+<%= link_to "Voltar", admin_products_path, class: 'btn btn-primary' %>
