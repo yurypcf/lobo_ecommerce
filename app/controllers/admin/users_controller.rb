@@ -1,6 +1,7 @@
 module Admin
   class UsersController < BaseController
     before_action :set_user, only: %i[show edit update destroy]
+    before_action :validate_document_number, only: %i[update create]
 
     def index
       @users = User.all
@@ -52,6 +53,14 @@ module Admin
 
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def validate_document_number
+      cpf = CPF.new(@user.document_number)
+
+      unless CPF.valid?(cpf)
+        redirect_to admin_users_path, notice: 'Número de CPF inválido.'
+      end
     end
   end
 end

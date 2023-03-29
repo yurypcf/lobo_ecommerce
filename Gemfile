@@ -49,6 +49,8 @@ gem 'devise'
 
 gem 'simple_form'
 
+gem 'cpf_cnpj'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

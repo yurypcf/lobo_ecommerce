@@ -2,6 +2,7 @@ require 'spec_helper'
 require 'vcr'
 require 'simplecov'
 require 'faker'
+require 'cpf_cnpj'
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
