@@ -43,7 +43,7 @@ module Admin
     private
 
     def user_params
-      params.require(:user).permit(:name, :document_number)
+      params.require(:user).permit(:name, :document_number, :active)
     end
 
     def new_user_params
