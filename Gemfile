@@ -51,6 +51,8 @@ gem 'simple_form'
 
 gem 'cpf_cnpj'
 
+gem 'image_processing', '>= 1.2'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

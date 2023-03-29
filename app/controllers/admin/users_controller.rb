@@ -44,11 +44,11 @@ module Admin
     private
 
     def user_params
-      params.require(:user).permit(:name, :document_number, :active)
+      params.require(:user).permit(:name, :document_number, :active, :role)
     end
 
     def new_user_params
-      params.require(:user).permit(:name, :document_number, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :document_number, :email, :password, :password_confirmation, :role)
     end
 
     def set_user
@@ -56,9 +56,13 @@ module Admin
     end
 
     def validate_document_number
+      if @user.nil?
+        @user = User.new(new_user_params)
+      end
+
       cpf = CPF.new(@user.document_number)
 
-      unless CPF.valid?(cpf)
+      unless cpf.valid?
         redirect_to admin_users_path, notice: 'Número de CPF inválido.'
       end
     end

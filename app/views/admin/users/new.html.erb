@@ -28,6 +28,9 @@
                         placeholder: 'e-mail',
                         autofocus: true,
                         input_html: { autocomplete: "email" } %>
+            <%= f.input :role,
+                        required: true,
+                        collection: [['admin', 'admin'], ['stockist', 'stockist']] %>
             <%= f.input :password,
                         required: true,
                         label: false,

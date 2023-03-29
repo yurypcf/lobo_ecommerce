@@ -7,4 +7,10 @@ class User < ApplicationRecord
   validates :name, :document_number, presence: true
 
   enum role: { customer: 'customer', admin: 'admin', stockist: 'stockist' }
+
+  before_create do
+    cpf = CPF.new(document_number)
+
+    self.document_number = cpf.formatted
+  end
 end
