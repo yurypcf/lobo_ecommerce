@@ -4,6 +4,12 @@ module Admin
 
       def index
         @products = Kaminari.paginate_array(Product.order(:name)).page(params[:page]).per(10)
+
+        @search = params['search']
+        if @search.present?
+          @name = @search['name']
+          @products = Kaminari.paginate_array(Product.where('name ILIKE ?', "%#{@name}%").order(:name)).page(params[:page]).per(10)
+        end
       end
 
       def new
