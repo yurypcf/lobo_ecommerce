@@ -3,7 +3,7 @@ module Admin
     before_action :set_product, only: %i[show edit update destroy]
 
       def index
-        @products = Product.all
+        @products = Kaminari.paginate_array(Product.order(:name)).page(params[:page]).per(10)
       end
 
       def new

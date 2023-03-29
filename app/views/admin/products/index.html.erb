@@ -30,7 +30,11 @@
             <% end %>
           </tbody>
         </table>
-
+        <div>
+          <%= link_to_prev_page @products, 'Previous Page' %>
+          <%= link_to_next_page @products, 'Next Page' %>
+        </div>
+        <br/>
         <%= link_to "Novo Produto", new_admin_product_path, class: 'btn btn-primary' %>
       </div>
     </div>

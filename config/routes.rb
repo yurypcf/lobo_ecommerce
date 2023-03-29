@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'home#index'
     resources :users
-    resources :products
+    resources :products do
+      get '/page/:page', action: :index, on: :collection
+    end
   end
 end

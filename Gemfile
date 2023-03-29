@@ -53,6 +53,8 @@ gem 'cpf_cnpj'
 
 gem 'image_processing', '>= 1.2'
 
+gem 'kaminari'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
