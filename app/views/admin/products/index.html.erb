@@ -31,8 +31,9 @@
                   <td>
                     <%= link_to "Detalhes", admin_product_path(product), class: 'btn btn-dark' %>
                     <%= link_to "Editar", edit_admin_product_path(product), class: 'btn btn-warning' %>
-                    <%= link_to "Excluir", admin_product_path(product), method: :delete, class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: 'Deseja realmente excluir?' } %>
-                    <%= link_to product.active ? 'Inativar' : 'Ativar', admin_product_activation_path(product), class: 'btn btn-warning', data: { turbo_method: :get, turbo_confirm: 'Você tem certeza?' } %>
+                    <% if current_user.admin? %>
+                      <%= link_to product.active ? 'Inativar' : 'Ativar', admin_product_activation_path(product), class: 'btn btn-warning', data: { turbo_method: :get, turbo_confirm: 'Você tem certeza?' } %>
+                    <% end %>
                   </td>
               </tr>
             <% end %>
