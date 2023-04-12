@@ -8,7 +8,7 @@
     <%= f.input :description, label: false, placeholder: 'descrição' %>
     <%= f.input :price, label: false, placeholder: 'preço' %>
     <%= f.input :quantity, label: false, placeholder: 'quantidade em estoque' %>
-    <%= f.input :image, label: false, placeholder: 'imagem do produto' %>
+    <%= f.file_field :images, multiple: true, label: false, placeholder: 'imagem do produto' %>
   </div>
 
   <div class="form-actions">

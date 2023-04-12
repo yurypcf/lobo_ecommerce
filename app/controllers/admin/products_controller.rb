@@ -30,6 +30,9 @@ module Admin
 
     def update
       if @product.update(product_params)
+
+        @product.images.attach(product_params[:images]) if product_params[:images].present?
+
         redirect_to admin_products_path, notice: 'Produto atualizado com sucesso.'
       else
         render :edit, status: :unprocessable_entity
@@ -65,7 +68,7 @@ module Admin
     end
 
     def product_params
-      params.require(:product).permit(:name, :description, :price, :image, :quantity, :active)
+      params.require(:product).permit(:name, :description, :price, :quantity, :active, images: [])
     end
   end
 end

@@ -1,8 +1,9 @@
 
 <div id="<%= dom_id product %>">
   <p>
-    <strong>Imagem:</strong>
-    <%= image_tag product.image.variant(:details) %>
+    <% product.images.each do |file| %>
+      <%= image_tag file.variant(:thumb) if file.present? %>
+    <% end %>
   </p>
 
   <p>

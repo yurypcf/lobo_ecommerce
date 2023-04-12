@@ -15,7 +15,9 @@
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Product image-->
-                    <%= image_tag product.image.variant(:thumb), class: "card-img-top" if product.image.present? %>
+                    <% product.images.each do |file| %>
+                      <%= image_tag file.variant(:thumb), class: "card-img-top" if file.present? %>
+                    <% end %>
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
