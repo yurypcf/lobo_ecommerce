@@ -14,4 +14,8 @@ Rails.application.routes.draw do
       get '/activation', action: :activate_deactivate
     end
   end
+
+  namespace :users do
+    resources :products
+  end
 end
